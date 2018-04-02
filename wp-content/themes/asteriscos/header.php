@@ -52,14 +52,14 @@ $prancheta= wp_get_attachment_image_src($attachmentID, $imageSizeName);
             </div>
 
             <!-- Header -->
-            <header id="header"><a href="/asteriscos/" class="logo">***ASTERISCOS</a></header>
+            <header id="header"><a href="/" class="logo">***ASTERISCOS</a></header>
 
             <!-- Nav -->
             <nav id="nav">
                 <ul class="links">
-                    <li class="tab"><a href="/asteriscos/">Apresentação</a></li>
-                    <li class="tab"><a href="/asteriscos/loja/">Loja</a></li>
-                    <li class="tab"><a href="/asteriscos/carrinho/">Carrinho</a></li>
+                    <li class="tab"><a href="/">Apresentação</a></li>
+                    <li class="tab"><a href="/loja/">Loja</a></li>
+                    <li class="tab"><a href="/carrinho/">Carrinho</a></li>
                 </ul>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>

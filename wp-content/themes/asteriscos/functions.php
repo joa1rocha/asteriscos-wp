@@ -67,7 +67,7 @@ add_theme_support( 'custom-header' );
 function asteriscos_custom_header_setup() {
 	$defaults = array(
 		// Default Header Image to display
-		'default-image' => get_template_directory_uri() . '/asteriscos/wp-content/uploads/2018/02/Prancheta-7-8.png',
+		'default-image' => get_template_directory_uri() . '/wp-content/uploads/2018/02/Prancheta-7-8.png',
 		// Display the header text along with the image
 		'header-text' => true,
 		// Header text color default
