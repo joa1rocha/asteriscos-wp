@@ -1,0 +1,27 @@
+2018-03-24T11:26:40+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_field(), 0 passed in C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php on line 8 and at least 1 expected in C:\xampp\htdocs\asteriscos\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php:20
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php(8): get_field()
+#1 C:\xampp\htdocs\asteriscos\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\asteriscos\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown
+
+2018-03-24T11:26:52+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_field(), 0 passed in C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php on line 8 and at least 1 expected in C:\xampp\htdocs\asteriscos\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php:20
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php(8): get_field()
+#1 C:\xampp\htdocs\asteriscos\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\asteriscos\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown
+
+2018-03-24T11:28:03+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_page(), 0 passed in C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php on line 8 and at least 1 expected in C:\xampp\htdocs\asteriscos\wp-includes\post.php:4282
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos\wp-content\themes\asteriscos\woocommerce\template-woocommerce.php(8): get_page()
+#1 C:\xampp\htdocs\asteriscos\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\asteriscos\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown
+

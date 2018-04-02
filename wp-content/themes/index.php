@@ -1,0 +1,1 @@
+/* global colorScheme, Color

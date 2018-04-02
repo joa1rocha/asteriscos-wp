@@ -1,0 +1,29 @@
+.prancheta {
+	max-width: 708px;
+	height: auto;
+}
+
+.image-projeto {
+	width:100%;
+}
+
+
+/** WooCommerce **/
+
+.woocommerce table.cart td.actions .input-text {
+	width: 160px;
+}
+
+.woocommerce-shipping-calculator {
+	display: block;
+	margin-top: 0;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce ul.products li.product .button {
+	height: auto;
+}
+
+.checkout.woocommerce-checkout .woocommerce-checkout-review-order {
+	width: 100%;
+}
