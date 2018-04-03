@@ -5,7 +5,7 @@
 (function($) {
 	var setCurrentPage = function() {
 		var navbar = $('#wrapper #nav .links > li.tab');
-		var currentTab = navbar.find('a[href$="' +  window.location.pathname +'"]');
+		var currentTab = navbar.find('a[href="' +  window.location.pathname +'"]');
 
 		currentTab.parent().addClass('active');
 
