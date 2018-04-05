@@ -3,13 +3,13 @@
 	height: auto;
 }
 
-.image-projeto {
+.imagem-item,
+.imagem-projeto {
 	width:100%;
 }
 
 
 /** WooCommerce **/
-
 .woocommerce table.cart td.actions .input-text {
 	width: 160px;
 }
@@ -26,4 +26,12 @@
 
 .checkout.woocommerce-checkout .woocommerce-checkout-review-order {
 	width: 100%;
+}
+
+/** Projetos **/
+.posts.items a:link {
+	border: none;
+}
+.posts.items a:hover {
+	color: #0f0f0f !important;
 }

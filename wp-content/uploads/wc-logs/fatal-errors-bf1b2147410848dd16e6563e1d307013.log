@@ -25,3 +25,15 @@ Stack trace:
 #4 {main}
   thrown
 
+2018-04-03T20:16:19+00:00 CRITICAL Uncaught Error: Unsupported operand types in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\header.php:26
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template.php(688): require_once()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-includes\template.php(647): load_template('C:\\xampp\\htdocs...', true)
+#2 C:\xampp\htdocs\asteriscos-wp\wp-includes\general-template.php(41): locate_template(Array, true)
+#3 C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\template-home.php(6): get_header()
+#4 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown
+

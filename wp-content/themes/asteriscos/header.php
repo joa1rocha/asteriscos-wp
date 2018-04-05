@@ -18,7 +18,22 @@ $isActive = false;
 
 $attachmentID = 1875;
 $imageSizeName = "thumbnail";
-$prancheta= wp_get_attachment_image_src($attachmentID, $imageSizeName);
+$prancheta = wp_get_attachment_image_src($attachmentID, $imageSizeName);
+
+$siteNavArgs = [
+    'menu'            => 'main-nav',
+    'container'       => 'false',
+    'menu_class'      => 'links',
+    'depth'           => 0,
+];
+
+$socialNavArgs = [
+	'menu'            => 'social-nav',
+	'container'       => 'false',
+	'menu_class'      => 'icons',
+	'depth'           => 0,
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -56,15 +71,6 @@ $prancheta= wp_get_attachment_image_src($attachmentID, $imageSizeName);
 
             <!-- Nav -->
             <nav id="nav">
-                <ul class="links">
-                    <li class="tab"><a href="/">Apresentação</a></li>
-                    <li class="tab"><a href="/loja/">Loja</a></li>
-                    <li class="tab"><a href="/carrinho/">Carrinho</a></li>
-                </ul>
-                <ul class="icons">
-                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon fa-facebook fa-external-link"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li></li>
-                </ul>
+				<?php wp_nav_menu($siteNavArgs); ?>
+				<?php wp_nav_menu($socialNavArgs); ?>
             </nav>
