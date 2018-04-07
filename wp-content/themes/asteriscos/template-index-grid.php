@@ -9,16 +9,12 @@ get_header();
 $titulo = get_field('titulo') ?: '';
 $intro = get_field('intro') ?: '';
 $items = get_field('items') ?: '';
-
-// Data
-setlocale(LC_TIME, 'pt_PT', 'pt_BR.utf-8', 'pt_PT.utf-8', 'portuguese');
-$hoje = strftime('%d de %B, %Y', strtotime('today'));
 ?>
     <!-- Main -->
     <div id="main">
         <!-- Featured Post -->
         <article class="post featured">
-            <header class="major"><span class="date"><?= $hoje; ?></span>
+            <header class="major">
             <h2><?= $titulo; ?></h2>
             <?= $intro; ?>
         </header>

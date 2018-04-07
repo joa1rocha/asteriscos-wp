@@ -10,10 +10,6 @@ $intro = get_field('intro') ?: [];
 $projetos = get_field('projetos') ?: [];
 $orgaosSociais = get_field('orgaos_sociais') ?: [];
 $rodape = get_field('rodape') ?: [];
-
-// Data
-setlocale(LC_TIME, 'pt_PT', 'pt_BR.utf-8', 'pt_PT.utf-8', 'portuguese');
-$hoje = strftime('%d de %B, %Y', strtotime('today'));
 ?>
 
 <!-- Main -->
@@ -21,7 +17,7 @@ $hoje = strftime('%d de %B, %Y', strtotime('today'));
 
     <!-- Featured Post -->
     <article class="post featured">
-        <header class="major"><span class="date"><?= $hoje; ?></span>
+        <header class="major">
             <h2><?= $intro['titulo']; ?></h2>
             <?= $intro['texto']; ?>
             <img class="image main" src="<?= $intro['imagem']['url']; ?>"/>
