@@ -72,6 +72,7 @@ function buscarNoticias($quantidade = 5) {
 				'titulo' => get_field( 'titulo', $post->ID ) ?: [],
 				'imagem' => get_field( 'imagem', $post->ID ) ?: [],
 				'resumo' => get_field( 'resumo', $post->ID ) ?: [],
+				'url' => $post->guid
 			];
 		}
 
