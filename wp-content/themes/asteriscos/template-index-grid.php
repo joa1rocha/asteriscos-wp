@@ -23,7 +23,6 @@ $hoje = strftime('%d de %B, %Y', strtotime('today'));
             <?= $intro; ?>
         </header>
     </article>
-    <h1>PROJETOS</h1>
     <!-- Posts -->
     <section class="posts items">
         <?php foreach($items as $item) : ?>
