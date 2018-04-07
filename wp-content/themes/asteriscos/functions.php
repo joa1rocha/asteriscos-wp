@@ -25,8 +25,11 @@
  */
 function buscarNoticias($quantidade = 5) {
 	// Category Ids
-	$noticiasId = 25;
-	$destaqueId = 26;
+	$noticiasCat = get_category_by_slug('noticias');
+	$destaqueCat = get_category_by_slug('destaque');
+
+	$noticiasId = $noticiasCat->term_id;
+	$destaqueId = $destaqueCat->term_id;
 
 	$destaques = [];
 	$noticias = [];
