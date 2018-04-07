@@ -35,3 +35,67 @@
 .posts.items a:hover {
 	color: #0f0f0f !important;
 }
+
+/** Home - noticias **/
+#main > section.noticias {
+	height: 685px;
+}
+
+section.noticias #myCarousel .carousel-caption {
+	left:0;
+	right:0;
+	bottom:0;
+	text-align:left;
+	padding:10px;
+	background:rgba(0,0,0,0.6);
+	text-shadow:none;
+}
+
+section.noticias #myCarousel .list-group {
+	max-height: 380px;
+	top:0;
+	right:0;
+}
+section.noticias #myCarousel .list-group li {
+	height: 85px;
+}
+section.noticias #myCarousel .list-group-item {
+	border-radius:0px;
+	cursor:pointer;
+	overflow: hidden;
+}
+section.noticias #myCarousel .list-group .active {
+	background-color:#eee;
+}
+
+section.noticias #myCarousel .carousel-inner {
+	overflow: hidden;
+}
+
+section.noticias #myCarousel .carousel-inner .item {
+	position: relative;
+	height: 438px;
+}
+
+section.noticias #myCarousel .carousel-inner .item img {
+	margin: auto;
+	width: 100%;
+}
+
+section.noticias #myCarousel .carousel-inner .carousel-caption {
+	position: absolute;
+	top: 0;
+	padding: 50px;
+}
+
+section.noticias #myCarousel .carousel-inner .carousel-caption a {
+	color: #fff;
+}
+
+@media (min-width: 992px) {
+	#myCarousel .carousel-controls {display:none;}
+}
+@media (max-width: 991px) {
+	.carousel-caption p,
+	#myCarousel .list-group {display:none;}
+}

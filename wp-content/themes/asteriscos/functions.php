@@ -16,6 +16,69 @@
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
 
+/**
+ * Buscar noticias
+ *
+ * @param int $quantidade
+ *
+ * @return array
+ */
+function buscarNoticias($quantidade = 5) {
+	// Category Ids
+	$noticiasId = 25;
+	$destaqueId = 26;
+
+	$destaques = [];
+	$noticias = [];
+
+	// Noticias de destaque
+	$numeroDeDestaques = $quantidade;
+	$args = [
+		'posts_per_page' => $numeroDeDestaques,
+		'category__and' => [$noticiasId, $destaqueId],
+		'orderby' => 'date',
+		'order' => 'DESC',
+	];
+	$postsArray = get_posts($args);
+
+	foreach ($postsArray as $post) {
+		$destaques[$post->ID] = [
+			'titulo' => get_field('titulo', $post->ID) ?: [],
+			'imagem' => get_field('imagem', $post->ID) ?: [],
+			'resumo' => get_field('resumo', $post->ID) ?: [],
+			'url' => $post->guid
+		];
+	}
+
+	if (count($destaques) != $quantidade) {
+		// Para o total ser igual a quantidade de noticias requeridas,
+		// subtraimos a quantidade de destaques.
+		$numeroDeNoticias = $quantidade - count($destaques);
+
+		// Todas as noticias
+		$args = [
+			'posts_per_page' => $numeroDeNoticias,
+			'category' => $noticiasId,
+			'orderby' => 'date',
+			'order' => 'DESC',
+		];
+		$postsArray = get_posts($args);
+
+		foreach ($postsArray as $post) {
+			$noticias[ $post->ID ] = [
+				'titulo' => get_field( 'titulo', $post->ID ) ?: [],
+				'imagem' => get_field( 'imagem', $post->ID ) ?: [],
+				'resumo' => get_field( 'resumo', $post->ID ) ?: [],
+			];
+		}
+
+	}
+
+	$posts = array_merge($destaques, $noticias);
+
+	return $posts;
+}
+
 add_theme_support( 'menus' );
 
 if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
@@ -29,21 +92,22 @@ function add_theme_scripts() {
 }
 
 function enqueue_styles() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css', array());
-	wp_enqueue_style( 'asteriscos', get_template_directory_uri() . '/assets/css/asteriscos.css', array());
-	wp_enqueue_style( 'noscript', get_template_directory_uri() . '/assets/css/noscript.css', array());
+	wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/assets/bootstrap-3.3.7/css/bootstrap.min.css', array());
+	wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array());
 
+	wp_enqueue_style('asteriscos', get_template_directory_uri() . '/assets/css/asteriscos.css', array());
 }
 
 function enqueue_scripts() {
-	wp_enqueue_script( 'jquery-min', get_template_directory_uri() . '/assets/js/jquery.min.js', array('jquery'));
-	wp_enqueue_script( 'jquery-scrollex-min', get_template_directory_uri() . '/assets/js/jquery.scrollex.min.js', array('jquery'));
-	wp_enqueue_script( 'jquery-scrolly-min', get_template_directory_uri() . '/assets/js/jquery.scrolly.min.js', array('jquery'));
-	wp_enqueue_script( 'skel-min', get_template_directory_uri() . '/assets/js/skel.min.js', array('jquery'));
-	wp_enqueue_script( 'util', get_template_directory_uri() . '/assets/js/util.js', array('jquery'));
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'));
-	wp_enqueue_script( 'asteriscos', get_template_directory_uri() . '/assets/js/asteriscos.js', array('jquery'));
+	wp_enqueue_script('bootstrap-min', get_template_directory_uri() . '/assets/bootstrap-3.3.7/js/bootstrap.min.js', array('jquery'));
+	wp_enqueue_script('jquery-min', get_template_directory_uri() . '/assets/js/jquery.min.js', array('jquery'));
+	wp_enqueue_script('jquery-scrollex-min', get_template_directory_uri() . '/assets/js/jquery.scrollex.min.js', array('jquery'));
+	wp_enqueue_script('jquery-scrolly-min', get_template_directory_uri() . '/assets/js/jquery.scrolly.min.js', array('jquery'));
+	wp_enqueue_script('skel-min', get_template_directory_uri() . '/assets/js/skel.min.js', array('jquery'));
+	wp_enqueue_script('util', get_template_directory_uri() . '/assets/js/util.js', array('jquery'));
+	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'));
+
+	wp_enqueue_script('asteriscos', get_template_directory_uri() . '/assets/js/asteriscos.js', array('jquery'));
 }
 
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );

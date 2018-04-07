@@ -37,3 +37,19 @@ Stack trace:
 #7 {main}
   thrown
 
+2018-04-07T19:14:55+00:00 CRITICAL Uncaught Error: Call to undefined function twentyfourteen_paging_nav() in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-home.php:51
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown
+
+2018-04-07T19:25:13+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-home.php:38
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown
+

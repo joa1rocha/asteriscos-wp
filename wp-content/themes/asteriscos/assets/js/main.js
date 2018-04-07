@@ -233,10 +233,10 @@
 							top: '25vh',
 							bottom: '-50vh',
 							enter: function() {
-								$intro.addClass('hidden');
+								$intro.addClass('intro-hidden');
 							},
 							leave: function() {
-								$intro.removeClass('hidden');
+								$intro.removeClass('intro-hidden');
 							}
 						});
 
@@ -252,10 +252,10 @@
 							top: '15vh',
 							bottom: '-15vh',
 							enter: function() {
-								$intro.addClass('hidden');
+								$intro.addClass('intro-hidden');
 							},
 							leave: function() {
-								$intro.removeClass('hidden');
+								$intro.removeClass('intro-hidden');
 							}
 						});
 
