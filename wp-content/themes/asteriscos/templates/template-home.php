@@ -7,7 +7,7 @@ get_header();
 
 // Sections
 $intro = get_field('intro') ?: [];
-$projetos = get_field('projetos') ?: [];
+$projetos = get_field('projetos') ?: '';
 $orgaosSociais = get_field('orgaos_sociais') ?: [];
 $rodape = get_field('rodape') ?: [];
 
@@ -74,12 +74,9 @@ if (count($noticias)) {
 
     <h1>PROJETOS</h1>
     <section class="posts projetos">
-        <?php foreach($projetos as $projeto) : ?>
-            <article>
-                <img class="imagem-projeto" src="<?= $projeto['imagem']['url']; ?>">
-                <?= $projeto['descricao']; ?>
-            </article>
-        <?php endforeach; ?>
+        <article>
+		    <?= $projetos; ?>
+        </article>
     </section>
 
     <!-- Footer -->
