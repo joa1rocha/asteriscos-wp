@@ -98,6 +98,7 @@ function add_theme_scripts() {
 function enqueue_styles() {
 	wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/assets/bootstrap-3.3.7/css/bootstrap.min.css', array());
 	wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array());
+	wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array());
 
 	wp_enqueue_style('asteriscos', get_template_directory_uri() . '/assets/css/asteriscos.css', array());
 }
