@@ -53,8 +53,6 @@
 
         featuredProducts.parent().prepend(featuredIcon);
 
-        console.log(wp_localize_script());
-
     };
 
 	var wooCommerceTweaks = function() {
