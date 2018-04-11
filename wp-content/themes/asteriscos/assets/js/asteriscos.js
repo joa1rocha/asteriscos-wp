@@ -11,12 +11,6 @@
 
 	};
 
-	var removeWooCommerceBreadCrumbs = function() {
-        // GO!
-		$('.woocommerce-breadcrumb').remove();
-        // AWAY!
-    };
-
 	var removeSocialIconText = function() {
 		$('li.icon a').text('');
 	};
@@ -41,10 +35,37 @@
         });
     };
 
+    /**
+     * Get rid annoying woocommerce bread crumbs
+     */
+    var removeBreadCrumbs = function() {
+        // GO!
+        $('.woocommerce-breadcrumb').remove();
+        // AWAY!
+    };
+
+    /**
+     * Set Featured Icon for woocommerce products
+     */
+	var setFeaturedIcon = function () {
+        var featuredIcon = '<span class="featured"><img src="/wp-content/themes/asteriscos/assets/images/novidade.png"></span>',
+            featuredProducts = $('.woocommerce ul.products li.product.featured .wp-post-image');
+
+        featuredProducts.parent().prepend(featuredIcon);
+
+        console.log(wp_localize_script());
+
+    };
+
+	var wooCommerceTweaks = function() {
+        removeBreadCrumbs();
+        setFeaturedIcon();
+    };
+
     $(document).ready(function() {
     	setCurrentPage();
-    	removeWooCommerceBreadCrumbs();
         removeSocialIconText();
         homeCarousel();
+        wooCommerceTweaks();
     });
 })(jQuery);

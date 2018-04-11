@@ -28,6 +28,21 @@
 	width: 100%;
 }
 
+/** Woocommerce icons **/
+.woocommerce ul.products li.product .featured,
+.woocommerce ul.products li.product .onsale.custom {
+	width: 100px;
+	background: none;
+	top: 10px;
+}
+
+.woocommerce ul.products li.product .featured {
+	position: absolute;
+	left: 0;
+	left: auto;
+	margin: -.5em -.5em 0 0;
+}
+
 /** Projetos **/
 .posts.items a:link {
 	border: none;
@@ -38,7 +53,7 @@
 
 /** Home - noticias **/
 #main > section.noticias {
-	height: 685px;
+	padding-bottom: 8rem;
 }
 
 section.noticias #myCarousel .carousel-caption {
@@ -74,7 +89,6 @@ section.noticias #myCarousel .carousel-inner {
 
 section.noticias #myCarousel .carousel-inner .item {
 	position: relative;
-	height: 438px;
 }
 
 section.noticias #myCarousel .carousel-inner .item img {
@@ -93,9 +107,33 @@ section.noticias #myCarousel .carousel-inner .carousel-caption a {
 }
 
 @media (min-width: 992px) {
-	#myCarousel .carousel-controls {display:none;}
+	#myCarousel .carousel-controls {
+		display:none;
+	}
 }
 @media (max-width: 991px) {
 	.carousel-caption p,
-	#myCarousel .list-group {display:none;}
+	#myCarousel .list-group {
+		display:none;
+	}
+
+	#main > section.noticias {
+		padding-bottom: 4rem;
+	}
+
+	#main > section.noticias #myCarousel .carousel-inner .item h2 {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+
+	#main > section.noticias #myCarousel .carousel-inner .item h2 a {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 34px;
+		text-align: center;
+	}
 }

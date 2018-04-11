@@ -32,7 +32,7 @@ if (count($noticias)) {
 
     <h1>NOTICIAS</h1>
     <section class="noticias">
-        <div id="myCarousel" class="carousel" data-ride="carousel">
+        <div id="myCarousel" class="carousel" data-ride="">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 			    <?php foreach($noticias as $noticia) : ?>
