@@ -21,7 +21,7 @@
 // Set your environment/url pairs
 $environments = array(
 	'local'       => 'localhost',
-	'production'  => '52.56.81.152'
+	'production'  => '52.56.78.193'
 );
 
 // Get the hostname
