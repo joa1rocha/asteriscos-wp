@@ -3,7 +3,6 @@
 	height: auto;
 }
 
-.imagem-item,
 .imagem-projeto {
 	width:100%;
 }
@@ -51,6 +50,13 @@
 	color: #0f0f0f !important;
 }
 
+.imagem-item {
+	width: 80%;
+	margin: auto;
+	display: inherit;
+	margin-bottom: 50px;
+}
+
 /** Home - noticias **/
 #main > section.noticias {
 	padding-bottom: 8rem;
@@ -73,6 +79,9 @@ section.noticias #myCarousel .list-group {
 }
 section.noticias #myCarousel .list-group li {
 	height: 85px;
+}
+section.noticias #myCarousel .list-group li h5 {
+	font-size: 15px;
 }
 section.noticias #myCarousel .list-group-item {
 	border-radius:0px;

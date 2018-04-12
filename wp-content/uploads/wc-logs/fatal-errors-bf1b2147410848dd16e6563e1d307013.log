@@ -53,3 +53,12 @@ Stack trace:
 #3 {main}
   thrown
 
+2018-04-12T20:40:10+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function get_field(), 0 passed in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-item.php on line 13 and at least 1 expected in C:\xampp\htdocs\asteriscos-wp\wp-content\plugins\advanced-custom-fields-pro\includes\api\api-template.php:20
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-item.php(13): get_field()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(74): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown
+

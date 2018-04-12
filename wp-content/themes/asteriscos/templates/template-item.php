@@ -9,6 +9,7 @@ get_header();
 $titulo = get_field('titulo') ?: '';
 $conteudo = get_field('conteudo') ?: '';
 $imagem = get_field('imagem') ?: '';
+$log = get_field('log') ?: [];
 ?>
     <!-- Main -->
     <div id="main">
@@ -25,6 +26,14 @@ $imagem = get_field('imagem') ?: '';
             <?= $conteudo; ?>
         </article>
     </section>
+    <?php if ($log['conteudo']) : ?>
+        <!-- Log -->
+        <section class="log" style="background-color: <?= $log['cor']; ?>">
+            <article>
+                <?= $log['conteudo']; ?>
+            </article>
+        </section>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>
