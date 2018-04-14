@@ -37,11 +37,13 @@ if (count($noticias)) {
             <div class="carousel-inner">
 			    <?php foreach($noticias as $noticia) : ?>
                     <div class="item <?= $noticia['active'] ? 'active' : '' ?>">
-                        <img src="<?= $noticia['imagem']['url']; ?>">
-                        <div class="carousel-caption">
-                            <h2><a href="<?= $noticia['url']; ?>"><?= $noticia['titulo']; ?></a></h2>
-                            <p><?= $noticia['resumo']; ?></p>
-                        </div>
+                        <a href="<?= $noticia['url']; ?>">
+                            <img src="<?= $noticia['imagem']['url']; ?>">
+                            <div class="carousel-caption">
+                                <h2><?= $noticia['titulo']; ?></h2>
+                                <p><?= $noticia['resumo']; ?></p>
+                            </div>
+                        </a>
                     </div><!-- End Item -->
 			    <?php endforeach; ?>
             </div><!-- End Carousel Inner -->
