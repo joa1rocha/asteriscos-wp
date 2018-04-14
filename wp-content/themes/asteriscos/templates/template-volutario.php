@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Item
+ * Template Name: Voluntario
  */
 
 get_header();
