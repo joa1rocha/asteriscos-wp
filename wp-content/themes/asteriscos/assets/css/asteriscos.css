@@ -171,6 +171,7 @@
 	width: 100%;
 	top: 50%;
 	transform: translateY(-50%);
+	height: 50px;
 }
 #main.home section.projetos article .owl-carousel .owl-nav .owl-next:before,
 #main.home section.projetos article .owl-carousel .owl-nav .owl-prev:before {
