@@ -92,12 +92,6 @@ if (count($noticias)) {
             </article>
         </section>
     <?php endif; ?>
-
-    <!-- Footer -->
-    <h1>Órgãos Sociais</h1>
-    <?php foreach($orgaosSociais as $orgaoSocial) : ?>
-        <p><strong><?= $orgaoSocial['titulo']; ?></strong> <?= $orgaoSocial['texto']; ?></p>
-    <?php endforeach; ?>
 </div>
 
 <?php get_footer(); ?>
