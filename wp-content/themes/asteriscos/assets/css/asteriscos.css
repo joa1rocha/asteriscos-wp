@@ -43,19 +43,124 @@
 }
 
 /** Projetos **/
-.posts.items a:link {
+/*Index*/
+#main.index-grid .imagem-item {
+	width: 100%;
+}
+#main.index-grid section {
+	padding: 4rem 4rem 2rem 4rem;
+}
+#main.index-grid section article {
+	margin: 10px;
+	padding: 0;
 	border: none;
 }
-.posts.items a:hover {
+#main.index-grid section article:hover {
+	-webkit-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
+}
+#main.index-grid section article a {
+	border: none;
+}
+#main.index-grid > .posts > * {
+	width: 31.381%;
+}
+
+/*items*/
+#main.items .posts.items a:link {
+	border: none;
+}
+#main.items .posts.items a:hover {
 	color: #0f0f0f !important;
 }
 
-.imagem-item {
-	width: 80%;
-	margin: auto;
-	display: inherit;
-	margin-bottom: 50px;
+#main.items section {
+	display: inline-block;
 }
+#main.items section.post {
+	min-height: 376px;
+}
+#main.items section.log {
+	width: 100%;
+}
+#main.items .imagem-item {
+	width: 50%;
+	display: inline-block;
+	float: left;
+}
+
+#main.items p {
+	width: 50%;
+	padding-left: 20px;
+	display: inline-block;
+	float: left;
+}
+
+/** Home - projetos **/
+#main.home section.projetos article {
+	width: 100%;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner {
+	position: relative;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 20px;
+	cursor: pointer;
+	filter: saturate(70%);
+
+	-webkit-transition: background-color 0.3s ease-out;
+	-moz-transition: background-color 0.3s ease-out;
+	-o-transition: background-color 0.3s ease-out;
+	transition: background-color 0.3s ease-out;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner:hover {
+	filter: saturate(100%);
+}
+#main.home section.projetos article .owl-item div.owl-item-inner > p {
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 25px;
+	padding-top: 25px;
+	text-transform: capitalize;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner div.mais {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 34px;
+	font-weight: bold;
+	font-size: 15px;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner div.mais p {
+	display: none;
+	text-align: center;
+	padding: 0 10px;
+	margin: 0;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 20px;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner:hover div.mais p {
+	display: inline-block;
+	-webkit-transition: background-color 0.3s ease-out;
+	-moz-transition: background-color 0.3s ease-out;
+	-o-transition: background-color 0.3s ease-out;
+	transition: background-color 0.3s ease-out;
+}
+#main.home section.projetos article .owl-item div.owl-item-inner:hover div.mais p:hover {
+	border: 2px solid #07baf5;;
+	color: #07baf5;
+	background: #fff;
+}
+#main.home section.projetos article .owl-item a:hover {
+	text-decoration: none;
+}
+/*carousel */
+
 
 /** Home - noticias **/
 #main > section.noticias {
@@ -102,7 +207,7 @@ section.noticias #myCarousel .carousel-inner .item {
 
 section.noticias #myCarousel .carousel-inner .item img {
 	margin: auto;
-	width: 100%;
+	max-height: 437px;
 }
 
 section.noticias #myCarousel .carousel-inner .carousel-caption {
@@ -112,6 +217,17 @@ section.noticias #myCarousel .carousel-inner .carousel-caption {
 }
 
 section.noticias #myCarousel .carousel-inner .carousel-caption a {
+	color: #fff;
+}
+
+section.noticias #myCarousel .list-group li.active.hover,
+section.noticias #myCarousel.carousel:hover {
+	-webkit-box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.75);
+	box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.75);
+}
+
+section.noticias #myCarousel .carousel-caption h2 {
 	color: #fff;
 }
 

@@ -11,7 +11,7 @@ $intro = get_field('intro') ?: '';
 $items = get_field('items') ?: '';
 ?>
     <!-- Main -->
-    <div id="main">
+    <div id="main" class="index-grid">
         <!-- Featured Post -->
         <article class="post featured">
             <header class="major">
@@ -24,9 +24,7 @@ $items = get_field('items') ?: '';
         <?php foreach($items as $item) : ?>
             <article>
                 <a href="<?= $item['link']['url']; ?>">
-                    <h2><?= $item['titulo']; ?></h2>
                     <img class="imagem-item" src="<?= $item['imagem']['url']; ?>">
-                    <?= $item['sumario']; ?>
                 </a>
             </article>
         <?php endforeach; ?>

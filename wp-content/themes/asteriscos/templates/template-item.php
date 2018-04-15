@@ -12,7 +12,7 @@ $imagem = get_field('imagem') ?: '';
 $log = get_field('log') ?: [];
 ?>
     <!-- Main -->
-    <div id="main">
+    <div id="main" class="items">
         <!-- Featured Post -->
         <article class="post featured">
             <header class="major">

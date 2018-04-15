@@ -7,10 +7,10 @@ get_header();
 
 // Sections
 $intro = get_field('intro') ?: [];
-$projetos = get_field('projetos') ?: '';
 $orgaosSociais = get_field('orgaos_sociais') ?: [];
 $rodape = get_field('rodape') ?: [];
 
+$projetos = buscarProjetos();
 $noticias = buscarNoticias(6);
 // make first item Active
 if (count($noticias)) {
@@ -19,7 +19,7 @@ if (count($noticias)) {
 ?>
 
 <!-- Main -->
-<div id="main">
+<div id="main" class="home">
 
     <!-- Featured Post -->
     <section class="post featured">
@@ -30,7 +30,7 @@ if (count($noticias)) {
         </header>
     </section>
 
-    <h1>NOTICIAS</h1>
+    <h1>NOTÍCIAS</h1>
     <section class="noticias">
         <div id="myCarousel" class="carousel" data-ride="">
             <!-- Wrapper for slides -->
@@ -73,13 +73,25 @@ if (count($noticias)) {
 
         </div><!-- End Carousel -->
     </section>
-
-    <h1>PROJETOS</h1>
-    <section class="posts projetos">
-        <article>
-		    <?= $projetos; ?>
-        </article>
-    </section>
+    <?php if (count($projetos)) : ?>
+        <h1>PROJETOS</h1>
+        <section class="posts projetos">
+            <article>
+                <div class="owl-carousel owl-theme">
+	                <?php foreach($projetos as $projeto) : ?>
+                        <a href="<?= $projeto['link']; ?>">
+                            <div class="owl-item-inner" style="background-image: url(<?= $projeto['imagem']['url']; ?>);">
+                                <p class="titulo"><?= $projeto['titulo']; ?></p>
+                                <div class="mais">
+                                    <p>Mais informação</p>
+                                </div>
+                            </div>
+                        </a>
+	                <?php endforeach; ?>
+                </div>
+            </article>
+        </section>
+    <?php endif; ?>
 
     <!-- Footer -->
     <h1>Órgãos Sociais</h1>

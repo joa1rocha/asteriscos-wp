@@ -13,7 +13,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: baseline;
+		/*vertical-align: baseline;*/
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -2746,7 +2746,7 @@
 	}
 
 	header.major {
-		margin: 0 0 4rem 0;
+		/*margin: 0 0 4rem 0;*/
 		text-align: center;
 	}
 
@@ -3583,7 +3583,7 @@
 		}
 
 		#main > .post {
-			padding: 8rem 8rem 6rem 8rem ;
+			/*padding: 8rem 8rem 6rem 8rem ;*/
 		}
 
 			#main > .post header.major > .date {
@@ -3603,7 +3603,8 @@
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
-					padding: 6rem 4rem 4rem 4rem ;
+					/*padding: 6rem 4rem 4rem 4rem ;*/
+					padding: 6rem 4rem;
 				}
 
 			}

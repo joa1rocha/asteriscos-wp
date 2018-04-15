@@ -19,6 +19,37 @@
 add_theme_support('menus' );
 
 /**
+ * Buscar Projetos
+ *
+ * @return array
+ */
+function buscarProjetos() {
+	$projetos = [];
+	$projetosPagina = get_page_by_title('Projetos');
+
+	$args = [
+		'post_type'      => 'page',
+		'posts_per_page' => 500,
+		'post_status'    => 'any',
+		'post_parent'    => $projetosPagina->ID
+	];
+	$projetosObj = get_posts($args);
+
+	if (count($projetosObj)) {
+		foreach ($projetosObj as $projeto) {
+			$projetos[$projeto->ID] = [
+				'titulo' => get_field('titulo', $projeto->ID) ?: [],
+				'imagem' => get_field('imagem-carousel', $projeto->ID) ?: [],
+				'conteudo' => get_field('conteudo', $projeto->ID) ?: [],
+				'link' => $projeto->guid,
+			];
+		}
+	}
+
+	return $projetos;
+}
+
+/**
  * Buscar noticias
  *
  * @param int $quantidade
@@ -106,6 +137,7 @@ function enqueue_styles() {
 	wp_enqueue_style('bootstrap-min', get_template_directory_uri() . '/assets/bootstrap-3.3.7/css/bootstrap.min.css', array());
 	wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array());
 	wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array());
+	wp_enqueue_style('owl-carousel-min', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array());
 
 	wp_enqueue_style('asteriscos', get_template_directory_uri() . '/assets/css/asteriscos.css', array());
 }
@@ -118,6 +150,7 @@ function enqueue_scripts() {
 	wp_enqueue_script('skel-min', get_template_directory_uri() . '/assets/js/skel.min.js', array('jquery'));
 	wp_enqueue_script('util', get_template_directory_uri() . '/assets/js/util.js', array('jquery'));
 	wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', array('jquery'));
+	wp_enqueue_script('owl-carousel-min', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array('jquery'));
 
 	wp_enqueue_script('asteriscos', get_template_directory_uri() . '/assets/js/asteriscos.js', array('jquery'));
 }

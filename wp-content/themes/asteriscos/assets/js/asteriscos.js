@@ -15,11 +15,16 @@
 		$('li.icon a').text('');
 	};
 
-	var homeCarousel = function () {
+	var homeNoticiasCarousel = function () {
         var clickEvent = false;
+
+        $('#myCarousel').hover(function(e) {
+            $(".list-group li.active").toggleClass('hover');
+        });
+
         $('#myCarousel').on('click', '.list-group li', function() {
             clickEvent = true;
-            $('.list-group li').removeClass('active');
+            $('.list-group li').removeClass('active').addClass('hover');
             $(this).addClass('active');
         }).on('slid.bs.carousel', function(e) {
             if(!clickEvent) {
@@ -47,12 +52,23 @@
     /**
      * Set Featured Icon for woocommerce products
      */
-	var setFeaturedIcon = function () {
+	var setFeaturedIcon = function() {
         var featuredIcon = '<span class="featured"><img src="/wp-content/themes/asteriscos/assets/images/novidade.png"></span>',
             featuredProducts = $('.woocommerce ul.products li.product.featured .wp-post-image');
 
         featuredProducts.parent().prepend(featuredIcon);
 
+    };
+
+	var initOwlCarousel = function() {
+        $('.owl-carousel').owlCarousel({
+            center: false,
+            items: 6,
+            loop: false,
+            margin: 10,
+            nav: false,
+            mouseDrag: false,
+        });
     };
 
 	var wooCommerceTweaks = function() {
@@ -63,7 +79,8 @@
     $(document).ready(function() {
     	setCurrentPage();
         removeSocialIconText();
-        homeCarousel();
+        homeNoticiasCarousel();
+        initOwlCarousel();
         wooCommerceTweaks();
     });
 })(jQuery);
