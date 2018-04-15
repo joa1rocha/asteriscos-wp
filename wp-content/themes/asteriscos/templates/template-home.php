@@ -81,7 +81,7 @@ if (count($noticias)) {
 	                <?php foreach($projetos as $projeto) : ?>
                         <a href="<?= $projeto['link']; ?>">
                             <div class="owl-item-inner" style="background-image: url(<?= $projeto['imagem']['url']; ?>);">
-                                <p class="titulo"><?= $projeto['titulo']; ?></p>
+                                <p class="titulo"><?= $projeto['titulo'] ?:''; ?></p>
                                 <div class="mais">
                                     <p>Mais informação</p>
                                 </div>
