@@ -41,6 +41,7 @@ function buscarProjetos() {
 				'titulo' => get_field('titulo', $projeto->ID) ?: [],
 				'imagem' => get_field('imagem-carousel', $projeto->ID) ?: [],
 				'conteudo' => get_field('conteudo', $projeto->ID) ?: [],
+				'mostrarTitulo' => get_field('titulo_no_carousel', $projeto->ID) ?: [],
 				'link' => $projeto->guid,
 			];
 		}

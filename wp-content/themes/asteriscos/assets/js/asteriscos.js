@@ -63,7 +63,7 @@
 	var initOwlCarousel = function() {
         $('.owl-carousel').owlCarousel({
             center: true,
-            items: 6,
+            items: 5,
             loop: true,
             margin: 10,
             nav: false,
