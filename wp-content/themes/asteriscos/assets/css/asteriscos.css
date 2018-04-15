@@ -122,10 +122,10 @@
 	text-align: center;
 	color: #fff;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 25px;
 	padding-top: 25px;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 #main.home section.projetos article .owl-item div.owl-item-inner div.mais {
 	position: absolute;
