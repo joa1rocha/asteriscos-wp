@@ -62,12 +62,12 @@
 
 	var initOwlCarousel = function() {
         $('.owl-carousel').owlCarousel({
-            center: false,
+            center: true,
             items: 6,
-            loop: false,
+            loop: true,
             margin: 10,
             nav: false,
-            mouseDrag: false,
+            mouseDrag: true,
         });
     };
 
