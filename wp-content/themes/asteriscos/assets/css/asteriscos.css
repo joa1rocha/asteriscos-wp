@@ -98,6 +98,9 @@
 }
 
 /** Home - projetos **/
+#main.home section.projetos {
+	font-family: "Source Sans Pro",Helvetica,sans-serif;
+}
 #main.home section.projetos article {
 	width: 100%;
 }
