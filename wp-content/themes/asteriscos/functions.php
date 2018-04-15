@@ -113,6 +113,7 @@ function buscarNoticias($quantidade = 5) {
 	}
 
 	$posts = array_merge($destaques, $noticias);
+	$posts = array_unique($posts);
 
 	return $posts;
 }
