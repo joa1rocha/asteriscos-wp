@@ -102,18 +102,20 @@ function buscarNoticias($quantidade = 5) {
 		$postsArray = get_posts($args);
 
 		foreach ($postsArray as $post) {
-			$noticias[ $post->ID ] = [
-				'titulo' => get_field( 'titulo', $post->ID ) ?: [],
-				'imagem' => get_field( 'imagem', $post->ID ) ?: [],
-				'resumo' => get_field( 'resumo', $post->ID ) ?: [],
-				'url' => $post->guid
-			];
+			if (!array_key_exists($post->ID, $destaques)) {
+				// skip duplicates
+				$noticias[$post->ID] = [
+					'titulo' => get_field( 'titulo', $post->ID ) ?: [],
+					'imagem' => get_field( 'imagem', $post->ID ) ?: [],
+					'resumo' => get_field( 'resumo', $post->ID ) ?: [],
+					'url'    => $post->guid
+				];
+			}
 		}
 
 	}
 
 	$posts = array_merge($destaques, $noticias);
-	$posts = array_unique($posts);
 
 	return $posts;
 }

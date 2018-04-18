@@ -28,11 +28,17 @@
 }
 
 /** Woocommerce icons **/
+.woocommerce div.has-post-thumbnail span.onsale.custom,
 .woocommerce ul.products li.product .featured,
 .woocommerce ul.products li.product .onsale.custom {
 	width: 100px;
 	background: none;
 	top: 10px;
+}
+
+.woocommerce div.has-post-thumbnail span.onsale.custom {
+	top: 60px;
+	left: 54px;
 }
 
 .woocommerce ul.products li.product .featured {
@@ -42,8 +48,7 @@
 	margin: -.5em -.5em 0 0;
 }
 
-/** Projetos **/
-/*Index*/
+/** Index - Grid **/
 #main.index-grid .imagem-item {
 	width: 100%;
 }
@@ -55,16 +60,26 @@
 	padding: 0;
 	border: none;
 }
-#main.index-grid section article:hover {
-	-webkit-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.75);
-}
 #main.index-grid section article a {
 	border: none;
 }
 #main.index-grid > .posts > * {
 	width: 31.381%;
+}
+
+#main.index-grid .posts.items article {
+	filter: saturate(50%);
+	-moz-transition: -moz-transform 0.5s ease;
+	-webkit-transition: -webkit-transform 0.5s ease;
+	-ms-transition: -ms-transform 0.5s ease;
+	transition: transform 0.5s ease;
+}
+#main.index-grid .posts.items article:hover {
+	transform: scale(1.1);
+	filter: saturate(100%);
+}
+#main.index-grid .posts.items article img {
+	border-radius: 5px;
 }
 
 /*items*/
@@ -279,6 +294,9 @@ section.noticias #myCarousel .carousel-caption h2 {
 	#myCarousel .carousel-controls {
 		display:none;
 	}
+	#main.index-grid > .posts > * {
+		width: 47%;
+	}
 }
 @media (max-width: 991px) {
 	.carousel-caption p,
@@ -304,5 +322,23 @@ section.noticias #myCarousel .carousel-caption h2 {
 		transform: translate(-50%,-50%);
 		font-size: 34px;
 		text-align: center;
+	}
+	#main.index-grid > .posts > * {
+		width: 47%;
+	}
+}
+@media (max-width: 859px) {
+	#main.index-grid > .posts > * {
+		width: 100%;
+	}
+	#main.home section.projetos article .owl-item div.owl-item-inner,
+	section.noticias #myCarousel .carousel-inner .item img {
+		height: 300px;
+	}
+}
+@media (max-width: 768px) {
+	#main.home section.projetos article .owl-item div.owl-item-inner,
+	section.noticias #myCarousel .carousel-inner .item img {
+		height: 200px;
 	}
 }
