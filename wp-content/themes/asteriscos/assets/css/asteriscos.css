@@ -261,12 +261,17 @@ section.noticias #myCarousel .carousel-inner {
 }
 
 section.noticias #myCarousel .carousel-inner .item {
+	height: 438px;
 	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 100%;
 }
 
-section.noticias #myCarousel .carousel-inner .item img {
-	margin: auto;
-	max-height: 437px;
+section.noticias #myCarousel .carousel-inner .carousel-caption {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 
 section.noticias #myCarousel .carousel-inner .carousel-caption {
@@ -327,18 +332,27 @@ section.noticias #myCarousel .carousel-caption h2 {
 		width: 47%;
 	}
 }
+@media (max-width: 1280px) {
+	section.noticias #myCarousel .carousel-inner .item {
+		height: 401px;
+	}
+}
 @media (max-width: 859px) {
 	#main.index-grid > .posts > * {
 		width: 100%;
 	}
-	#main.home section.projetos article .owl-item div.owl-item-inner,
-	section.noticias #myCarousel .carousel-inner .item img {
+	#main.home section.projetos article .owl-item div.owl-item-inner {
 		height: 300px;
+	}
+	section.noticias #myCarousel .carousel-inner .item {
+		height: 400px;
 	}
 }
 @media (max-width: 768px) {
-	#main.home section.projetos article .owl-item div.owl-item-inner,
-	section.noticias #myCarousel .carousel-inner .item img {
-		height: 200px;
+	#main.home section.projetos article .owl-item div.owl-item-inner {
+		height: 300px;
+	}
+	section.noticias #myCarousel .carousel-inner .item {
+		height: 261px;
 	}
 }

@@ -36,9 +36,11 @@ if (count($noticias)) {
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 			    <?php foreach($noticias as $noticia) : ?>
-                    <div class="item <?= $noticia['active'] ? 'active' : '' ?>">
+                    <div
+                        class="item <?= $noticia['active'] ? 'active' : '' ?>"
+                        style='background-image: url(<?= $noticia['imagem']['url']; ?>)'
+                    >
                         <a href="<?= $noticia['url']; ?>">
-                            <img src="<?= $noticia['imagem']['url']; ?>">
                             <div class="carousel-caption">
                                 <h2><?= $noticia['titulo']; ?></h2>
                                 <p><?= $noticia['resumo']; ?></p>
