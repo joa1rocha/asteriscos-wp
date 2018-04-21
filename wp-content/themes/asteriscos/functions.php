@@ -165,14 +165,6 @@ function asteriscos_add_woocommerce_support() {
 	add_theme_support( 'woocommerce', array(
 		'thumbnail_image_width' => 150,
 		'single_image_width'    => 300,
-//		'product_grid'          => array(
-//			'default_rows'    => 3,
-//			'min_rows'        => 2,
-//			'max_rows'        => 8,
-//			'default_columns' => 4,
-//			'min_columns'     => 2,
-//			'max_columns'     => 5,
-//		),
 	) );
 }
 add_action('after_setup_theme', 'asteriscos_add_woocommerce_support');
@@ -186,20 +178,6 @@ function asteriscos_custom_header_setup() {
 		'header-text' => true,
 		// Header text color default
 		'default-text-color' => '000',
-		// Header image width (in pixels)
-//		'width' => 1000,
-		// Header image height (in pixels)
-//		'height' => 198,
-		// Header image random rotation default
-//		'random-default' => false,
-		// Enable upload of image file in admin
-//		'uploads' => false,
-		// function to be called in theme head section
-//		'wp-head-callback' => 'wphead_cb',
-		//  function to be called in preview page head section
-//		'admin-head-callback' => 'adminhead_cb',
-		// function to produce preview markup in the admin screen
-//		'admin-preview-callback' => 'adminpreview_cb',
 	);
 }
 add_action('after_setup_theme', 'asteriscos_custom_header_setup');

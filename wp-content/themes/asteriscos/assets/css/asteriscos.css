@@ -72,22 +72,23 @@
 #main.index-grid section article a {
 	border: none;
 }
-#main.index-grid > .posts > * {
-	width: 31.381%;
+#main.index-grid .items ul {
+	display: inline-block;
 }
-
-#main.index-grid .posts.items article {
+#main.index-grid .items ul li {
+	list-style-type: none;
+	padding-top: 15px;
 	filter: saturate(50%);
 	-moz-transition: -moz-transform 0.5s ease;
 	-webkit-transition: -webkit-transform 0.5s ease;
 	-ms-transition: -ms-transform 0.5s ease;
 	transition: transform 0.5s ease;
 }
-#main.index-grid .posts.items article:hover {
+#main.index-grid .items li:hover {
 	transform: scale(1.1);
 	filter: saturate(100%);
 }
-#main.index-grid .posts.items article img {
+#main.index-grid .items li img {
 	border-radius: 5px;
 }
 
