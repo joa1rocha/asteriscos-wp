@@ -372,8 +372,9 @@ section.entre-asteriscos .main .left h3 {
 }
 section.entre-asteriscos .main .left p {
 	font-size: 30px;
-	line-height: 14px;
+	line-height: 30px;
 	margin: 0;
+	text-align: left;
 }
 
 @media (max-width: 1680px) {
