@@ -50,7 +50,6 @@ if (count($noticias)) {
 			    <?php endforeach; ?>
             </div><!-- End Carousel Inner -->
 
-
             <ul class="list-group">
 			    <?php $count = 0; ?>
 			    <?php foreach($noticias as $noticia) : ?>

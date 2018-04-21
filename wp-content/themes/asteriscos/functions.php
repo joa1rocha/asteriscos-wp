@@ -42,7 +42,7 @@ function buscarProjetos() {
 				'imagem' => get_field('imagem-carousel', $projeto->ID) ?: [],
 				'conteudo' => get_field('conteudo', $projeto->ID) ?: [],
 				'mostrarTitulo' => get_field('titulo_no_carousel', $projeto->ID) ?: [],
-				'link' => $projeto->guid,
+				'link' => '/' . $projeto->post_name
 			];
 		}
 	}
@@ -83,7 +83,7 @@ function buscarNoticias($quantidade = 5) {
 			'titulo' => get_field('titulo', $post->ID) ?: [],
 			'imagem' => get_field('imagem', $post->ID) ?: [],
 			'resumo' => get_field('resumo', $post->ID) ?: [],
-			'url' => $post->guid
+			'url' => '/' . $post->post_name
 		];
 	}
 
