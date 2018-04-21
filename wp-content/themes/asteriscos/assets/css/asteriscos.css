@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'Gotham';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Gotham'), url('/wp-content/themes/asteriscos/assets/fonts/Gotham-Ultra.otf') format('truetype');
+}
+
 .prancheta {
 	max-width: 708px;
 	width: 100%;
@@ -297,6 +304,78 @@ section.noticias #myCarousel .carousel-caption h2 {
 	color: #fff;
 }
 
+/** Entre Asteriscos **/
+
+#main section.entre-asteriscos {
+	font-family: Gotham;
+	background-color: #0f0f0f;
+	background-image: url("/wp-content/themes/asteriscos/assets/images/asterisco-1-branco.png");
+	background-repeat: repeat;
+	background-size: 65px;
+	padding: 0;
+}
+section.entre-asteriscos h2,
+section.entre-asteriscos h3 {
+	font-family: Gotham;
+}
+section.entre-asteriscos .main {
+	height: 290px;
+	text-align: center;
+}
+section.entre-asteriscos .main > * {
+	padding: 27px 0;
+	color: #fff;
+}
+section.entre-asteriscos .main > .left {
+	padding-left: 4rem;
+}
+section.entre-asteriscos .main > .right {
+	padding-right: 4rem;
+}
+section.entre-asteriscos .main > div,
+section.entre-asteriscos .main > div > h2 {
+	height: 100%;
+}
+section.entre-asteriscos .main .center h2 {
+	color: #fff;
+	text-transform: capitalize;
+	display: inline-block;
+	margin: auto;
+	height: -webkit-fill-available;
+}
+section.entre-asteriscos .main .center h2 p {
+	text-align: center;
+	margin: 0;
+	line-height: 46px;
+	margin: 12px 0;
+}
+section.entre-asteriscos .main .center h2:before,
+section.entre-asteriscos .main .center h2:after {
+	width: 185px;
+	content: " ";
+	background-image: url(/wp-content/themes/asteriscos/assets/images/asteriscos-3.png);
+	background-size: 204px;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 61px;
+	display: block;
+	margin: auto;
+}
+section.entre-asteriscos .main .center h2 p,
+section.entre-asteriscos .main .left > h3 {
+	font-size: 54px;
+}
+section.entre-asteriscos .main .left h3 {
+	text-align: left;
+	margin: 0;
+	color: #fff;
+	line-height: normal;
+}
+section.entre-asteriscos .main .left p {
+	font-size: 30px;
+	line-height: 14px;
+	margin: 0;
+}
 @media (min-width: 992px) {
 	#myCarousel .carousel-controls {
 		display:none;
