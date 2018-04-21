@@ -110,8 +110,7 @@ if (count($noticias)) {
                         </h2>
                     </div>
                     <div class="right hidden-xs col-md-4">
-
-                    </div>
+                </div>
              </div>
             </a>
         </article>

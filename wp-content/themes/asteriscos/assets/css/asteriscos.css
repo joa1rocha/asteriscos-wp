@@ -83,7 +83,7 @@
 	-ms-transition: -ms-all 0.5s ease;
 	transition: all 0.5s ease;
 }
-#main.index-grid .items li .titulo {transition: all 0.5s;
+#main.index-grid .items li .titulo {
 	display: none;
 	margin: auto;
 	position: absolute;
@@ -108,6 +108,8 @@
 }
 #main.index-grid .items li .titulo p {
 	text-align: center;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 30px;
 }
 #main.index-grid .items li:hover .titulo {
 	display: block;
