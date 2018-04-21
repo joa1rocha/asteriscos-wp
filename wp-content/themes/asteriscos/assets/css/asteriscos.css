@@ -409,6 +409,13 @@ section.entre-asteriscos .main .left p {
 	text-align: left;
 }
 
+/** Noticias **/
+#main.noticias article > img.imagem-item {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/** Media Queries **/
 @media (max-width: 1680px) {
 	section.entre-asteriscos .main .center h2 p {
 		font-size: 54px

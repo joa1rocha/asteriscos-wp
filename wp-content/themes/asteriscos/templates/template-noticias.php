@@ -12,7 +12,7 @@ $texto = get_field('texto') ?: '';
 $imagem = get_field('imagem') ?: '';
 ?>
     <!-- Main -->
-    <div id="main">
+    <div id="main" class="noticias">
         <!-- Featured Post -->
         <article class="post featured">
             <header class="major">
