@@ -11,7 +11,6 @@ $intro = get_field('intro') ?: '';
 $items = get_field('items') ?: '';
 $numero_por_fila = get_field('numero_por_fila') ?: 2;
 $numero_por_fila = 12 / $numero_por_fila;
-//d($numero_por_fila);die;
 ?>
     <!-- Main -->
     <div id="main" class="index-grid">
@@ -28,7 +27,12 @@ $numero_por_fila = 12 / $numero_por_fila;
             <?php foreach($items as $item) : ?>
                 <li class="col-md-<?= $numero_por_fila; ?>">
                     <a href="<?= $item['link']['url']; ?>">
-                        <img class="imagem-item" src="<?= $item['imagem']['url']; ?>">
+	                    <?php if($item['titulo']) : ?>
+                            <div class="titulo">
+                                <p><?= $item['titulo']; ?></p>
+                            </div>
+	                    <?php endif; ?>
+                        <img class="imagem-item <?= $item['titulo'] ? 'has-title' : '' ;?>" src="<?= $item['imagem']['url']; ?>">
                     </a>
                 </li>
             <?php endforeach; ?>

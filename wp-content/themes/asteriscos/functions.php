@@ -38,7 +38,7 @@ function buscarProjetos() {
 	if (count($projetosObj)) {
 		foreach ($projetosObj as $projeto) {
 			$projetos[$projeto->ID] = [
-				'titulo' => get_field('titulo', $projeto->ID) ?: [],
+				'titulo' => get_field('titulo', $projeto->ID),
 				'imagem' => get_field('imagem-carousel', $projeto->ID) ?: [],
 				'conteudo' => get_field('conteudo', $projeto->ID) ?: [],
 				'mostrarTitulo' => get_field('titulo_no_carousel', $projeto->ID) ?: [],
@@ -80,7 +80,7 @@ function buscarNoticias($quantidade = 5) {
 
 	foreach ($postsArray as $post) {
 		$destaques[$post->ID] = [
-			'titulo' => get_field('titulo', $post->ID) ?: [],
+			'titulo' => get_field('titulo', $post->ID),
 			'imagem' => get_field('imagem', $post->ID) ?: [],
 			'resumo' => get_field('resumo', $post->ID) ?: [],
 			'url' => '/' . $post->post_name
