@@ -99,7 +99,7 @@ if (count($noticias)) {
     <section class="entre-asteriscos">
         <article>
             <div class="main">
-                <div class="left hidden-sm col-md-4">
+                <div class="left hidden-xs col-md-4">
                     <h3> Opinião</h3>
                     <p> @Jornal de Leiria</p>
                 </div>
@@ -108,7 +108,7 @@ if (count($noticias)) {
                         <p>Entre<br>Asteriscos</p>
                     </h2>
                 </div>
-                <div class="right hidden-sm col-md-4">
+                <div class="right hidden-xs col-md-4">
 
                 </div>
             </div>
