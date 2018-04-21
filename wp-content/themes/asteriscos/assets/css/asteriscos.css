@@ -375,6 +375,17 @@ section.entre-asteriscos .main .left p {
 	line-height: 14px;
 	margin: 0;
 }
+
+@media (max-width: 1680px) {
+	section.entre-asteriscos .main .center h2 p {
+		font-size: 54px
+	}
+}
+@media (max-width: 1280px) {
+	section.noticias #myCarousel .carousel-inner .item {
+		height: 401px;
+	}
+}
 @media (min-width: 992px) {
 	#myCarousel .carousel-controls {
 		display:none;
@@ -410,11 +421,6 @@ section.entre-asteriscos .main .left p {
 	}
 	#main.index-grid > .posts > * {
 		width: 47%;
-	}
-}
-@media (max-width: 1280px) {
-	section.noticias #myCarousel .carousel-inner .item {
-		height: 401px;
 	}
 }
 @media (max-width: 859px) {
