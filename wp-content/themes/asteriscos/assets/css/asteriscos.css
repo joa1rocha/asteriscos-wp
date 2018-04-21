@@ -416,7 +416,7 @@ section.entre-asteriscos .main .left p {
 }
 
 /** Voluntarios **/
-#main.voluntarios article > img.imagem-item {
+#main.voluntario article > img.imagem-item {
 	width: 50%;
 	float: right;
 	margin-bottom: 15px;
