@@ -319,7 +319,7 @@ section.entre-asteriscos h3 {
 	font-family: Gotham;
 }
 section.entre-asteriscos .main {
-	height: 332px;
+	height: 336px;
 	text-align: center;
 }
 section.entre-asteriscos .main > * {
@@ -344,9 +344,9 @@ section.entre-asteriscos .main .center h2 {
 	height: -webkit-fill-available;
 }
 section.entre-asteriscos .main .center h2 p {
-	font-size: 65px;
+	font-size: 84px;
 	text-align: center;
-	line-height: 46px;
+	line-height: 68px;
 	margin: 12px 0;
 }
 section.entre-asteriscos .main .center h2:before,
