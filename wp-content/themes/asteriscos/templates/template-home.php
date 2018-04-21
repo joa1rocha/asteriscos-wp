@@ -9,6 +9,7 @@ get_header();
 $intro = get_field('intro') ?: [];
 $orgaosSociais = get_field('orgaos_sociais') ?: [];
 $rodape = get_field('rodape') ?: [];
+$entreAsteriscosUrl = get_field('entre_asteriscos') ?: '#';
 
 $projetos = buscarProjetos();
 $noticias = buscarNoticias(6);
@@ -97,20 +98,22 @@ if (count($noticias)) {
     <?php endif; ?>
     <section class="entre-asteriscos">
         <article>
-            <div class="main">
-                <div class="left hidden-xs col-md-4">
-                    <h3> Opinião</h3>
-                    <p> @Jornal de Leiria</p>
-                </div>
-                <div class="center col-sm-12 col-md-4">
-                    <h2>
-                        <p>Entre<br>Asteriscos</p>
-                    </h2>
-                </div>
-                <div class="right hidden-xs col-md-4">
+            <a href="<?= $entreAsteriscosUrl ?>">
+                <div class="main">
+                    <div class="left hidden-xs col-md-4">
+                        <h3>Opinião</h3>
+                        <p>@Jornal de Leiria</p>
+                    </div>
+                    <div class="center col-sm-12 col-md-4">
+                        <h2>
+                            <p>Entre<br>Asteriscos</p>
+                        </h2>
+                    </div>
+                    <div class="right hidden-xs col-md-4">
 
-                </div>
-            </div>
+                    </div>
+             </div>
+            </a>
         </article>
     </section>
 </div>
