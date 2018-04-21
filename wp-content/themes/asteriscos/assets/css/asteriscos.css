@@ -415,6 +415,14 @@ section.entre-asteriscos .main .left p {
 	margin-bottom: 15px;
 }
 
+/** Voluntarios **/
+#main.voluntarios article > img.imagem-item {
+	width: 50%;
+	float: right;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
 /** Media Queries **/
 @media (max-width: 1680px) {
 	section.entre-asteriscos .main .center h2 p {
