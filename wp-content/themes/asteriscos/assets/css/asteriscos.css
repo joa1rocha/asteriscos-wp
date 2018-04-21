@@ -138,16 +138,19 @@
 	width: 100%;
 }
 #main.items .imagem-item {
-	width: 50%;
+	width: 100%;
 	display: inline-block;
-	float: left;
+	margin-bottom: 15px;
 }
 
-#main.items p {
-	width: 50%;
+#main.items .conteudo {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+}
+#main.items .conteudo p {
 	padding-left: 20px;
 	display: inline-block;
-	float: left;
 }
 
 /** Home - projetos **/
@@ -470,5 +473,10 @@ section.entre-asteriscos .main .left p {
 	}
 	section.noticias #myCarousel .carousel-inner .item {
 		height: 261px;
+	}
+	#main.items .conteudo {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
 	}
 }

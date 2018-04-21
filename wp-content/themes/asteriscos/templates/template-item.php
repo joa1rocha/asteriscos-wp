@@ -22,8 +22,10 @@ $log = get_field('log') ?: [];
     <!-- Posts -->
     <section class="post">
         <article>
-            <img class="imagem-item" src="<?= $imagem['url']; ?>">
-            <?= $conteudo; ?>
+            <div class="conteudo">
+                <img class="imagem-item" src="<?= $imagem['url']; ?>">
+                <?= $conteudo; ?>
+            </div>
         </article>
     </section>
     <?php if ($log['conteudo']) : ?>
