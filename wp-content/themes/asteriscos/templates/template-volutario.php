@@ -7,6 +7,7 @@ get_header();
 
 // Sections
 $titulo = get_field('titulo') ?: '';
+$cargo = get_field('cargo') ?: '';
 $conteudo = get_field('conteudo') ?: '';
 $imagem = get_field('imagem') ?: '';
 $log = get_field('log') ?: [];
@@ -17,6 +18,7 @@ $log = get_field('log') ?: [];
         <article class="post featured">
             <header class="major">
             <h2><?= $titulo; ?></h2>
+            <hp><?= $cargo; ?></hp>
         </header>
     </article>
     <!-- Posts -->
