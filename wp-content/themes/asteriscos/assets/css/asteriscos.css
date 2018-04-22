@@ -433,7 +433,9 @@ section.entre-asteriscos .main .left p {
 	font-size: 25px;
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
-
+#main.voluntario .conteudo {
+	min-height: 366px;
+}
 /** Media Queries **/
 @media (max-width: 1680px) {
 	section.entre-asteriscos .main .center h2 p {
