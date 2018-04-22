@@ -25,7 +25,7 @@ $log = get_field('log') ?: [];
     <section class="post">
         <article>
             <div class="conteudo">
-                <img class="imagem-item" src="<?= $imagem['url']; ?>">
+                <img class="col-xs-12 col-md-6 imagem-item" src="<?= $imagem['url']; ?>">
                 <?= $conteudo; ?>
             </div>
         </article>
