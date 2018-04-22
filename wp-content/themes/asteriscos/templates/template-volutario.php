@@ -18,7 +18,7 @@ $log = get_field('log') ?: [];
         <article class="post featured">
             <header class="major">
             <h2><?= $titulo; ?></h2>
-            <hp><?= $cargo; ?></hp>
+            <p><?= $cargo; ?></p>
         </header>
     </article>
     <!-- Posts -->

@@ -424,6 +424,10 @@ section.entre-asteriscos .main .left p {
 	margin-bottom: 15px;
 	margin-left: 15px;
 }
+#main.voluntario header > p {
+	font-size: 25px;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
 
 /** Media Queries **/
 @media (max-width: 1680px) {
