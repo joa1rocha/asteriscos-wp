@@ -30,6 +30,7 @@ $numero_por_fila = 12 / $numero_por_fila;
 	                    <?php if($item['titulo']) : ?>
                             <div class="titulo">
                                 <p><?= $item['titulo']; ?></p>
+                                <p class="subtitulo"><?= $item['subtitulo']; ?></p>
                             </div>
 	                    <?php endif; ?>
                         <img class="imagem-item <?= $item['titulo'] ? 'has-title' : '' ;?>" src="<?= $item['imagem']['url']; ?>">

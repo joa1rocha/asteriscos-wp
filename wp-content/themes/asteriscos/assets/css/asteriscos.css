@@ -110,6 +110,11 @@
 	text-align: center;
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
 	font-size: 30px;
+	margin: 0;
+	line-height: 30px;
+}
+#main.index-grid .items li .titulo p.subtitulo {
+	font-size: 20px;
 }
 #main.index-grid .items li:hover .titulo {
 	display: block;
