@@ -31,7 +31,7 @@
  */
 function ai1wm_storage_path( $params ) {
 	if ( empty( $params['storage'] ) ) {
-		throw new Ai1wm_Storage_Exception( __( 'Unable to locate storage path', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Storage_Exception( __( 'Unable to locate storage path. <a href="https://help.servmask.com/knowledgebase/invalid-storage-path/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	// Get storage path
@@ -51,12 +51,12 @@ function ai1wm_storage_path( $params ) {
  */
 function ai1wm_backup_path( $params ) {
 	if ( empty( $params['archive'] ) ) {
-		throw new Ai1wm_Archive_Exception( __( 'Unable to locate archive path', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Archive_Exception( __( 'Unable to locate archive path. <a href="https://help.servmask.com/knowledgebase/invalid-archive-path/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	// Validate archive path
 	if ( validate_file( $params['archive'] ) !== 0 ) {
-		throw new Ai1wm_Archive_Exception( __( 'Invalid archive path', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Archive_Exception( __( 'Invalid archive path. <a href="https://help.servmask.com/knowledgebase/invalid-archive-path/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	return AI1WM_BACKUPS_PATH . DIRECTORY_SEPARATOR . $params['archive'];
@@ -70,12 +70,12 @@ function ai1wm_backup_path( $params ) {
  */
 function ai1wm_archive_path( $params ) {
 	if ( empty( $params['archive'] ) ) {
-		throw new Ai1wm_Archive_Exception( __( 'Unable to locate archive path', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Archive_Exception( __( 'Unable to locate archive path. <a href="https://help.servmask.com/knowledgebase/invalid-archive-path/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	// Validate archive path
 	if ( validate_file( $params['archive'] ) !== 0 ) {
-		throw new Ai1wm_Archive_Exception( __( 'Invalid archive path', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Archive_Exception( __( 'Invalid archive path. <a href="https://help.servmask.com/knowledgebase/invalid-archive-path/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	// Get archive path
@@ -104,6 +104,16 @@ function ai1wm_export_path( $params ) {
  */
 function ai1wm_import_path( $params ) {
 	return ai1wm_storage_path( $params ) . DIRECTORY_SEPARATOR . AI1WM_IMPORT_NAME;
+}
+
+/**
+ * Get multipart.list absolute path
+ *
+ * @param  array  $params Request parameters
+ * @return string
+ */
+function ai1wm_multipart_path( $params ) {
+	return ai1wm_storage_path( $params ) . DIRECTORY_SEPARATOR . AI1WM_MULTIPART_NAME;
 }
 
 /**
@@ -144,6 +154,16 @@ function ai1wm_multisite_path( $params ) {
  */
 function ai1wm_blogs_path( $params ) {
 	return ai1wm_storage_path( $params ) . DIRECTORY_SEPARATOR . AI1WM_BLOGS_NAME;
+}
+
+/**
+ * Get settings.json absolute path
+ *
+ * @param  array  $params Request parameters
+ * @return string
+ */
+function ai1wm_settings_path( $params ) {
+	return ai1wm_storage_path( $params ) . DIRECTORY_SEPARATOR . AI1WM_SETTINGS_NAME;
 }
 
 /**
@@ -227,6 +247,26 @@ function ai1wm_backup_bytes( $params ) {
  */
 function ai1wm_database_bytes( $params ) {
 	return filesize( ai1wm_database_path( $params ) );
+}
+
+/**
+ * Get package size in bytes
+ *
+ * @param  array   $params Request parameters
+ * @return integer
+ */
+function ai1wm_package_bytes( $params ) {
+	return filesize( ai1wm_package_path( $params ) );
+}
+
+/**
+ * Get multisite size in bytes
+ *
+ * @param  array   $params Request parameters
+ * @return integer
+ */
+function ai1wm_multisite_bytes( $params ) {
+	return filesize( ai1wm_multisite_path( $params ) );
 }
 
 /**
@@ -346,6 +386,66 @@ function ai1wm_archive_folder( $blog_id = null ) {
  * @return string
  */
 function ai1wm_archive_bucket( $blog_id = null ) {
+	$name = array();
+
+	// Add domain
+	if ( ( $domain = explode( '.', parse_url( get_site_url( $blog_id ), PHP_URL_HOST ) ) ) ) {
+		foreach ( $domain as $subdomain ) {
+			if ( $subdomain ) {
+				$name[] = $subdomain;
+			}
+		}
+	}
+
+	// Add path
+	if ( ( $path = explode( '/', parse_url( get_site_url( $blog_id ), PHP_URL_PATH ) ) ) ) {
+		foreach ( $path as $directory ) {
+			if ( $directory ) {
+				$name[] = $directory;
+			}
+		}
+	}
+
+	return strtolower( implode( '-', $name ) );
+}
+
+/**
+ * Get archive project name
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_archive_project( $blog_id = null ) {
+	$name = array();
+
+	// Add domain
+	if ( ( $domain = explode( '.', parse_url( get_site_url( $blog_id ), PHP_URL_HOST ) ) ) ) {
+		foreach ( $domain as $subdomain ) {
+			if ( $subdomain ) {
+				$name[] = $subdomain;
+			}
+		}
+	}
+
+	// Add path
+	if ( ( $path = explode( '/', parse_url( get_site_url( $blog_id ), PHP_URL_PATH ) ) ) ) {
+		foreach ( $path as $directory ) {
+			if ( $directory ) {
+				$name[] = $directory;
+			}
+		}
+	}
+
+	return strtolower( implode( '-', $name ) );
+}
+
+/**
+ * Get archive share name
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_archive_share( $blog_id = null ) {
 	$name = array();
 
 	// Add domain
@@ -533,6 +633,20 @@ function ai1wm_plugin_filters( $filters = array() ) {
 		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration';
 	}
 
+	// Microsoft Azure Extension
+	if ( defined( 'AI1WMZE_PLUGIN_BASENAME' ) ) {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMZE_PLUGIN_BASENAME );
+	} else {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-azure-storage-extension';
+	}
+
+	// Backblaze B2 Extension
+	if ( defined( 'AI1WMAE_PLUGIN_BASENAME' ) ) {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMAE_PLUGIN_BASENAME );
+	} else {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-b2-extension';
+	}
+
 	// Box Extension
 	if ( defined( 'AI1WMBE_PLUGIN_BASENAME' ) ) {
 		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMBE_PLUGIN_BASENAME );
@@ -559,6 +673,13 @@ function ai1wm_plugin_filters( $filters = array() ) {
 		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMFE_PLUGIN_BASENAME );
 	} else {
 		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-ftp-extension';
+	}
+
+	// Google Cloud Storage Extension
+	if ( defined( 'AI1WMCE_PLUGIN_BASENAME' ) ) {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . dirname( AI1WMCE_PLUGIN_BASENAME );
+	} else {
+		$filters[] = 'plugins' . DIRECTORY_SEPARATOR . 'all-in-one-wp-migration-gcloud-storage-extension';
 	}
 
 	// Google Drive Extension
@@ -624,6 +745,16 @@ function ai1wm_active_servmask_plugins( $plugins = array() ) {
 		$plugins[] = AI1WM_PLUGIN_BASENAME;
 	}
 
+	// Microsoft Azure Extension
+	if ( defined( 'AI1WMZE_PLUGIN_BASENAME' ) ) {
+		$plugins[] = AI1WMZE_PLUGIN_BASENAME;
+	}
+
+	// Backblaze B2 Extension
+	if ( defined( 'AI1WMAE_PLUGIN_BASENAME' ) ) {
+		$plugins[] = AI1WMAE_PLUGIN_BASENAME;
+	}
+
 	// Box Extension
 	if ( defined( 'AI1WMBE_PLUGIN_BASENAME' ) ) {
 		$plugins[] = AI1WMBE_PLUGIN_BASENAME;
@@ -642,6 +773,11 @@ function ai1wm_active_servmask_plugins( $plugins = array() ) {
 	// FTP Extension
 	if ( defined( 'AI1WMFE_PLUGIN_BASENAME' ) ) {
 		$plugins[] = AI1WMFE_PLUGIN_BASENAME;
+	}
+
+	// Google Cloud Storage Extension
+	if ( defined( 'AI1WMCE_PLUGIN_BASENAME' ) ) {
+		$plugins[] = AI1WMCE_PLUGIN_BASENAME;
 	}
 
 	// Google Drive Extension
@@ -841,6 +977,24 @@ function ai1wm_deactivate_jetpack_modules( $modules ) {
 }
 
 /**
+ * Discover plugin basename
+ *
+ * @param  string $basename Plugin basename
+ * @return string
+ */
+function ai1wm_discover_plugin_basename( $basename ) {
+	foreach ( get_plugins() as $plugin => $info ) {
+		if ( strpos( dirname( $plugin ), dirname( $basename ) ) !== false ) {
+			if ( basename( $plugin ) === basename( $basename ) ) {
+				return $plugin;
+			}
+		}
+	}
+
+	return $basename;
+}
+
+/**
  * Flush WP options cache
  *
  * @return void
@@ -860,7 +1014,6 @@ function ai1wm_cache_flush() {
 	wp_cache_delete( 'alloptions', 'options' );
 	wp_cache_delete( 'notoptions', 'options' );
 }
-
 
 /**
  * URL encode
@@ -883,6 +1036,21 @@ function ai1wm_urldecode( $value ) {
 }
 
 /**
+ * Set URL scheme
+ *
+ * @param  string $url    URL value
+ * @param  string $scheme URL scheme
+ * @return string
+ */
+function ai1wm_urlscheme( $url, $scheme = '' ) {
+	if ( empty( $scheme ) ) {
+		return preg_replace( '#^\w+://#', '//', $url );
+	}
+
+	return preg_replace( '#^\w+://#', $scheme . '://', $url );
+}
+
+/**
  * Opens a file in specified mode
  *
  * @param  string   $file Path to the file to open
@@ -893,7 +1061,7 @@ function ai1wm_urldecode( $value ) {
 function ai1wm_open( $file, $mode ) {
 	$file_handle = @fopen( $file, $mode );
 	if ( false === $file_handle ) {
-		throw new Ai1wm_Not_Accessible_Exception( sprintf( __( 'Unable to open %s with mode %s', AI1WM_PLUGIN_NAME ), $file, $mode ) );
+		throw new Ai1wm_Not_Accessible_Exception( sprintf( __( 'Unable to open %s with mode %s. <a href="https://help.servmask.com/knowledgebase/invalid-file-permissions/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $file, $mode ) );
 	}
 
 	return $file_handle;
@@ -912,10 +1080,12 @@ function ai1wm_write( $handle, $content ) {
 	$write_result = @fwrite( $handle, $content );
 	if ( false === $write_result ) {
 		if ( ( $meta = stream_get_meta_data( $handle ) ) ) {
-			throw new Ai1wm_Not_Writable_Exception( sprintf( __( 'Unable to write to: %s', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
+			throw new Ai1wm_Not_Writable_Exception( sprintf( __( 'Unable to write to: %s. <a href="https://help.servmask.com/knowledgebase/invalid-file-permissions/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
 		}
 	} elseif ( strlen( $content ) !== $write_result ) {
-		throw new Ai1wm_Quota_Exceeded_Exception( __( 'Out of disk space.', AI1WM_PLUGIN_NAME ) );
+		if ( ( $meta = stream_get_meta_data( $handle ) ) ) {
+			throw new Ai1wm_Quota_Exceeded_Exception( sprintf( __( 'Out of disk space. Unable to write to: %s. <a href="https://help.servmask.com/knowledgebase/out-of-disk-space/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
+		}
 	}
 
 	return $write_result;
@@ -933,7 +1103,7 @@ function ai1wm_read( $handle, $filesize ) {
 	$read_result = @fread( $handle, $filesize );
 	if ( false === $read_result ) {
 		if ( ( $meta = stream_get_meta_data( $handle ) ) ) {
-			throw new Ai1wm_Not_Readable_Exception( sprintf( __( 'Unable to read file: %s', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
+			throw new Ai1wm_Not_Readable_Exception( sprintf( __( 'Unable to read file: %s. <a href="https://help.servmask.com/knowledgebase/invalid-file-permissions/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
 		}
 	}
 
@@ -950,7 +1120,7 @@ function ai1wm_seek( $handle, $offset, $mode = SEEK_SET ) {
 	$seek_result = @fseek( $handle, $offset, $mode );
 	if ( -1 === $seek_result ) {
 		if ( ( $meta = stream_get_meta_data( $handle ) ) ) {
-			throw new Ai1wm_Not_Seekable_Exception( sprintf( __( 'Unable to seek to offset %d on %s', AI1WM_PLUGIN_NAME ), $offset, $meta['uri'] ) );
+			throw new Ai1wm_Not_Seekable_Exception( sprintf( __( 'Unable to seek to offset %d on %s. <a href="https://help.servmask.com/knowledgebase/php-32bit/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $offset, $meta['uri'] ) );
 		}
 	}
 
@@ -967,7 +1137,7 @@ function ai1wm_tell( $handle ) {
 	$tell_result = @ftell( $handle );
 	if ( false === $tell_result ) {
 		if ( ( $meta = stream_get_meta_data( $handle ) ) ) {
-			throw new Ai1wm_Not_Tellable_Exception( sprintf( __( 'Unable to get current pointer position of %s', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
+			throw new Ai1wm_Not_Tellable_Exception( sprintf( __( 'Unable to get current pointer position of %s. <a href="https://help.servmask.com/knowledgebase/php-32bit/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), $meta['uri'] ) );
 		}
 	}
 
@@ -1130,7 +1300,7 @@ function ai1wm_fseek( $file_handle, Math_BigInteger $offset ) {
  */
 function ai1wm_verify_secret_key( $secret_key ) {
 	if ( $secret_key !== get_option( AI1WM_SECRET_KEY ) ) {
-		throw new Ai1wm_Not_Valid_Secret_Key_Exception( __( 'Unable to authenticate the secret key.', AI1WM_PLUGIN_NAME ) );
+		throw new Ai1wm_Not_Valid_Secret_Key_Exception( __( 'Unable to authenticate the secret key. <a href="https://help.servmask.com/knowledgebase/invalid-secret-key/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ) );
 	}
 
 	return true;
@@ -1142,6 +1312,47 @@ function ai1wm_verify_secret_key( $secret_key ) {
  * @return boolean
  */
 function ai1wm_is_scheduled_backup() {
-	return empty( $_REQUEST['ai1wm_manual_export'] ) && empty( $_REQUEST['ai1wm_manual_import'] ) && empty( $_REQUEST['ai1wm_manual_restore'] );
+	if ( isset( $_GET['ai1wm_manual_export'] ) || isset( $_POST['ai1wm_manual_export'] ) ) {
+		return false;
+	}
+
+	if ( isset( $_GET['ai1wm_manual_import'] ) || isset( $_POST['ai1wm_manual_import'] ) ) {
+		return false;
+	}
+
+	if ( isset( $_GET['ai1wm_manual_restore'] ) || isset( $_POST['ai1wm_manual_restore'] ) ) {
+		return false;
+	}
+
+	return true;
 }
 
+/**
+ * PHP setup environment
+ *
+ * @return void
+ */
+function ai1wm_setup_environment() {
+	// Set whether a client disconnect should abort script execution
+	@ignore_user_abort( true );
+
+	// Set maximum execution time
+	@set_time_limit( 0 );
+
+	// Set maximum time in seconds a script is allowed to parse input data
+	@ini_set( 'max_input_time', '-1' );
+
+	// Set maximum backtracking steps
+	@ini_set( 'pcre.backtrack_limit', PHP_INT_MAX );
+
+	// Set binary safe encoding
+	if ( @function_exists( 'mb_internal_encoding' ) && ( @ini_get( 'mbstring.func_overload' ) & 2 ) ) {
+		@mb_internal_encoding( 'ISO-8859-1' );
+	}
+
+	// Set error handler
+	@set_error_handler( 'Ai1wm_Handler::error' );
+
+	// Set shutdown handler
+	@register_shutdown_function( 'Ai1wm_Handler::shutdown' );
+}
