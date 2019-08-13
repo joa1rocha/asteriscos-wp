@@ -61,6 +61,8 @@ abstract class SAL_Site {
 
 	abstract public function get_frame_nonce();
 
+	abstract public function get_jetpack_frame_nonce();
+
 	abstract public function allowed_file_types();
 
 	abstract public function get_post_formats();
@@ -76,6 +78,8 @@ abstract class SAL_Site {
 	abstract public function is_jetpack();
 
 	abstract public function get_jetpack_modules();
+
+	abstract public function is_module_active( $module );
 
 	abstract public function is_vip();
 
@@ -125,6 +129,10 @@ abstract class SAL_Site {
 		);
 	}
 
+	public function is_wpcom_atomic() {
+		return false;
+	}
+
 	public function is_wpcom_store() {
 		return false;
 	}
@@ -167,7 +175,7 @@ abstract class SAL_Site {
 
 		switch ( $context ) {
 		case 'edit' :
-			if ( ! current_user_can( 'edit_post', $post ) ) {
+			if ( ! current_user_can( 'edit_post', $post->ID ) ) {
 				return new WP_Error( 'unauthorized', 'User cannot edit post', 403 );
 			}
 			break;
@@ -627,5 +635,13 @@ abstract class SAL_Site {
 	function get_site_goals() {
 		$options = get_option( 'options' );
 		return empty( $options[ 'siteGoals'] ) ? null : $options[ 'siteGoals' ];
+	}
+
+	function get_launch_status() {
+		return false;
+	}
+
+	function get_site_segment() {
+		return false;
 	}
 }

@@ -1,0 +1,24 @@
+2019-08-13T22:55:51+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-home.php:9
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(74): include()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown
+
+2019-08-13T22:59:48+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-index-grid.php:9
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(78): include()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-index-grid.php on line 9
+
+2019-08-13T22:59:58+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-home.php:9
+Stack trace:
+#0 C:\xampp\htdocs\asteriscos-wp\wp-includes\template-loader.php(78): include()
+#1 C:\xampp\htdocs\asteriscos-wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\asteriscos-wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\asteriscos-wp\wp-content\themes\asteriscos\templates\template-home.php on line 9
+

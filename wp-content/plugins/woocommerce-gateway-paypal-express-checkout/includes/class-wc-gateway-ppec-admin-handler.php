@@ -19,16 +19,18 @@ class WC_Gateway_PPEC_Admin_Handler {
 		// defer this until for next release.
 		// add_filter( 'woocommerce_get_sections_checkout', array( $this, 'filter_checkout_sections' ) );
 
-		add_action( 'woocommerce_order_status_on-hold_to_processing', array( $this, 'capture_payment' ) );
-		add_action( 'woocommerce_order_status_on-hold_to_completed', array( $this, 'capture_payment' ) );
-		add_action( 'woocommerce_order_status_on-hold_to_cancelled', array( $this, 'cancel_payment' ) );
-		add_action( 'woocommerce_order_status_on-hold_to_refunded', array( $this, 'cancel_payment' ) );
+		add_action( 'woocommerce_order_status_processing', array( $this, 'capture_payment' ) );
+		add_action( 'woocommerce_order_status_completed', array( $this, 'capture_payment' ) );
+		add_action( 'woocommerce_order_status_cancelled', array( $this, 'cancel_authorization' ) );
+		add_action( 'woocommerce_order_status_refunded', array( $this, 'cancel_authorization' ) );
 
 		add_filter( 'woocommerce_order_actions', array( $this, 'add_capture_charge_order_action' ) );
 		add_action( 'woocommerce_order_action_ppec_capture_charge', array( $this, 'maybe_capture_charge' ) );
 
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'maybe_redirect_to_ppec_settings' ) );
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'maybe_reset_api_credentials' ) );
+
+		add_action( 'woocommerce_admin_order_totals_after_total', array( $this, 'display_order_fee_and_payout' ) );
 	}
 
 	public function add_capture_charge_order_action( $actions ) {
@@ -160,6 +162,7 @@ class WC_Gateway_PPEC_Admin_Handler {
 
 				$params['AUTHORIZATIONID'] = $trans_id;
 				$params['AMT'] = floatval( $order_total );
+				$params['CURRENCYCODE'] = $old_wc ? $order->order_currency : $order->get_currency();
 				$params['COMPLETETYPE'] = 'Complete';
 
 				$result = wc_gateway_ppec()->client->do_express_checkout_capture( $params );
@@ -195,11 +198,11 @@ class WC_Gateway_PPEC_Admin_Handler {
 	}
 
 	/**
-	 * Cancel authorization
+	 * Cancel authorization (if one is present)
 	 *
 	 * @param  int $order_id
 	 */
-	public function cancel_payment( $order_id ) {
+	public function cancel_authorization( $order_id ) {
 		$order = wc_get_order( $order_id );
 		$old_wc = version_compare( WC_VERSION, '3.0', '<' );
 		$payment_method = $old_wc ? $order->payment_method : $order->get_payment_method();
@@ -296,5 +299,53 @@ class WC_Gateway_PPEC_Admin_Handler {
 		$settings->save();
 
 		wp_safe_redirect( wc_gateway_ppec()->get_admin_setting_link() );
+	}
+
+	/**
+	 * Displays the PayPal fee and the net total of the transaction without the PayPal charges
+	 *
+	 * @since 1.6.6
+	 *
+	 * @param int $order_id
+	 */
+	public function display_order_fee_and_payout( $order_id ) {
+		$order = wc_get_order( $order_id );
+
+		$old_wc         = version_compare( WC_VERSION, '3.0', '<' );
+		$payment_method = $old_wc ? $order->payment_method : $order->get_payment_method();
+		$paypal_fee     = wc_gateway_ppec_get_transaction_fee( $order );
+		$order_currency = $old_wc ? $order->order_currency : $order->get_currency();
+		$order_total    = $old_wc ? $order->order_total : $order->get_total();
+
+		if ( 'ppec_paypal' !== $payment_method || ! is_numeric( $paypal_fee ) ) {
+			return;
+		}
+
+		$net = $order_total - $paypal_fee;
+
+		?>
+
+		<tr>
+			<td class="label ppec-fee">
+				<?php echo wc_help_tip( __( 'This represents the fee PayPal collects for the transaction.', 'woocommerce-gateway-paypal-express-checkout' ) ); ?>
+				<?php esc_html_e( 'PayPal Fee:', 'woocommerce-gateway-paypal-express-checkout' ); ?>
+			</td>
+			<td width="1%"></td>
+			<td class="total">
+				-&nbsp;<?php echo wc_price( $paypal_fee, array( 'currency' => $order_currency ) ); ?>
+			</td>
+		</tr>
+		<tr>
+			<td class="label ppec-payout">
+				<?php echo wc_help_tip( __( 'This represents the net total that will be credited to your PayPal account. This may be in a different currency than is set in your PayPal account.', 'woocommerce-gateway-paypal-express-checkout' ) ); ?>
+				<?php esc_html_e( 'PayPal Payout:', 'woocommerce-gateway-paypal-express-checkout' ); ?>
+			</td>
+			<td width="1%"></td>
+			<td class="total">
+				<?php echo wc_price( $net, array( 'currency' => $order_currency ) ); ?>
+			</td>
+		</tr>
+
+		<?php
 	}
 }

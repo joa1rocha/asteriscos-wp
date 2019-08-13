@@ -18,7 +18,7 @@ abstract class WC_Gateway_PPEC extends WC_Payment_Gateway {
 		$this->method_title       = __( 'PayPal Checkout', 'woocommerce-gateway-paypal-express-checkout' );
 		$this->method_description = __( 'Allow customers to conveniently checkout directly with PayPal.', 'woocommerce-gateway-paypal-express-checkout' );
 
-		if ( empty( $_GET['woo-paypal-return'] ) ) {
+		if ( empty( $_GET['woo-paypal-return'] ) && 'yes' !== $this->get_option( 'use_spb' ) ) {
 			$this->order_button_text  = __( 'Continue to payment', 'woocommerce-gateway-paypal-express-checkout' );
 		}
 
@@ -123,7 +123,7 @@ abstract class WC_Gateway_PPEC extends WC_Payment_Gateway {
 			try {
 				return array(
 					'result'   => 'success',
-					'redirect' => $checkout->start_checkout_from_checkout( $order_id, $this->use_ppc ),
+					'redirect' => $checkout->start_checkout_from_order( $order_id, $this->use_ppc ),
 				);
 			} catch ( PayPal_API_Exception $e ) {
 				wc_add_notice( $e->getMessage(), 'error' );
@@ -134,7 +134,6 @@ abstract class WC_Gateway_PPEC extends WC_Payment_Gateway {
 				$checkout_details = $checkout->get_checkout_details( $session->token );
 
 				$checkout_context = array(
-					'start_from' => 'checkout',
 					'order_id'   => $order_id,
 				);
 				if ( $checkout->needs_billing_agreement_creation( $checkout_context ) ) {
@@ -174,6 +173,7 @@ abstract class WC_Gateway_PPEC extends WC_Payment_Gateway {
 						'redirect' => wc_gateway_ppec()->settings->get_paypal_redirect_url( $session->token, true ),
 					);
 				} else {
+					do_action( 'wc_gateway_ppec_process_payment_error', $e, $order );
 					wc_add_notice( $e->getMessage(), 'error' );
 				}
 			}
