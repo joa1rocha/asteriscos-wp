@@ -18,7 +18,7 @@
                 <section class="split contact">
                     <section class="alt">
                         <h3>Morada</h3>
-                        <p>PRACETA PROFESSOR JOAQUIM FILIPE, LOTE 6 LOJA A 2410-191 - Leiria<br>
+                        <p>Escola Primária de Marvila (Freguesia da Barreira) Rua Caminho das Barruges Marvila 2410-192 LEIRIA<br>
                         </p>
                     </section>
                     <section>
